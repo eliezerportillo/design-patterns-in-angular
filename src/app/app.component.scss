@@ -1,0 +1,22 @@
+
+
+.beverages,
+.condiments {
+    flex-flow: row wrap;
+    display: flex;
+
+    box-sizing: border-box;
+    place-content: center space-evenly;
+    align-items: center;
+    margin: 16px 0;
+
+}
+
+.order{
+    text-align: center;
+}
+
+
+.spacer{
+    flex: 1 1 auto;
+}

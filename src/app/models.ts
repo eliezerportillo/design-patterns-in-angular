@@ -6,16 +6,17 @@ export abstract class Beverage {
 
     public getDescription(): string { return this._description; }
 
-    public abstract Cost(): number;
+    public abstract cost(): number;
 }
 
 export class DarkRoast extends Beverage {
 
     public constructor() {
-        super(); this._description = "Dark Roast Coffee";
+        super(); 
+        this._description = "Dark Roast";
     }
 
-    public Cost(): number {
+    public cost(): number {
         return 0.99;
 
     }
@@ -24,10 +25,10 @@ export class DarkRoast extends Beverage {
 export class Decaf extends Beverage {
 
     public constructor() {
-        super(); this._description = "Decaf Coffee";
+        super(); this._description = "Decaf";
     }
 
-    public Cost(): number {
+    public cost(): number {
         return 1.05;
 
     }
@@ -36,10 +37,10 @@ export class Decaf extends Beverage {
 export class Espresso extends Beverage {
 
     public constructor() {
-        super(); this._description = "Espresso Cofeee";
+        super(); this._description = "Espresso";
     }
 
-    public Cost(): number {
+    public cost(): number {
         return 1.99;
 
     }
@@ -48,10 +49,10 @@ export class Espresso extends Beverage {
 export class HouseBlend extends Beverage {
 
     public constructor() {
-        super(); this._description = "House Blend Coffe";
+        super(); this._description = "House Blend";
     }
 
-    public Cost(): number {
+    public cost(): number {
         return 0.89;
 
     }
@@ -67,15 +68,16 @@ export class Milk extends CondimentDecorator {
     private beverage: Beverage;
 
     public constructor(beverage: Beverage) {
-        super(); this.beverage = this.beverage;
+        super();
+        this.beverage = beverage;
     }
 
     public getDescription(): string {
         return this.beverage.getDescription() + ", Milk";
     }
 
-    public Cost(): number {
-        return (this.beverage.Cost() + 0.1);
+    public cost(): number {
+        return (this.beverage.cost() + 0.1);
 
     }
 }
@@ -85,15 +87,15 @@ export class Mocha extends CondimentDecorator {
     private beverage: Beverage;
 
     public constructor(beverage: Beverage) {
-        super(); this.beverage = this.beverage;
+        super(); this.beverage = beverage;
     }
 
     public getDescription(): string {
         return (this.beverage.getDescription() + ", Mocha");
     }
 
-    public Cost(): number {
-        return (this.beverage.Cost() + 0.2);
+    public cost(): number {
+        return (this.beverage.cost() + 0.2);
 
     }
 }
@@ -103,15 +105,15 @@ export class Soy extends CondimentDecorator {
     private beverage: Beverage;
 
     public constructor(beverage: Beverage) {
-        super(); this.beverage = this.beverage;
+        super(); this.beverage = beverage;
     }
 
     public getDescription(): string {
         return (this.beverage.getDescription() + ", Soy");
     }
 
-    public Cost(): number {
-        return (this.beverage.Cost() + 0.15);
+    public cost(): number {
+        return (this.beverage.cost() + 0.15);
 
     }
 }
@@ -121,15 +123,15 @@ export class Whip extends CondimentDecorator {
     private beverage: Beverage;
 
     public constructor(beverage: Beverage) {
-        super(); this.beverage = this.beverage;
+        super(); this.beverage = beverage;
     }
 
     public getDescription(): string {
         return (this.beverage.getDescription() + ", Whip");
     }
 
-    public Cost(): number {
-        return (this.beverage.Cost() + 0.1);
+    public cost(): number {
+        return (this.beverage.cost() + 0.1);
 
     }
 }

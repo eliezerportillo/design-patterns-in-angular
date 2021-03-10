@@ -16,18 +16,25 @@ export class AppComponent {
     new Espresso()
   ];
   condiments = [
-    { description: 'Steamed Milk', cost: 0.10, use: (b: Beverage) => new Milk(b) },
-    { description: 'Mocha ', cost: .20, use: (b: Beverage) => new Mocha(b) },
-    { description: 'Soy', cost: .15, use: (b: Beverage) => new Soy(b) },
-    { description: 'Whip', cost: .10, use: (b: Beverage) => new Whip(b) },
+    { description: 'Steamed Milk', count: null, use: (b: Beverage) => new Milk(b) },
+    { description: 'Mocha ', count: null, use: (b: Beverage) => new Mocha(b) },
+    { description: 'Soy', count: null, use: (b: Beverage) => new Soy(b) },
+    { description: 'Whip', count: null, use: (b: Beverage) => new Whip(b) },
   ];
+
+  get isSelect() { return this.beverage != null; }
 
   chooseBeverage(beverage: Beverage) {
     this.beverage = beverage;
   }
 
-  addCondiment(condiment) {
-    this.beverage = condiment.use(this.beverage);
+  onPay() {
+    this.condiments.forEach(c => {
+      for (let i = 0; i < c.count; i++) {
+        this.beverage = c.use(this.beverage);
+      }
+      c.count = null;
+    });
   }
 }
 

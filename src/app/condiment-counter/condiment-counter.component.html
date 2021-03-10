@@ -1,0 +1,14 @@
+<div class="condiment">
+
+    <p [matBadge]="condiment.count" matBadgeOverlap="true">
+        <span>{{condiment.description}}</span>
+    </p>
+    <div class="buttons">
+        <button mat-stroked-button (click)="remove()" [disabled]="canRemove()">
+            <mat-icon>remove</mat-icon>
+        </button>
+        <button mat-stroked-button (click)="add()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div>
